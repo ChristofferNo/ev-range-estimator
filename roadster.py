@@ -52,7 +52,7 @@ def velocity(x, route):
 
 ### PART 2A ###
 def time_to_destination(x, route, n):
-    distance_km, speed_kmph = load_route('speed_anna.npz')
+    distance_km, speed_kmph = load_route(route)
     print('type of x', type(x))
     print('just distance', distance_km)
     
@@ -75,8 +75,8 @@ def time_to_destination(x, route, n):
 
 ### PART 2B ###
 def total_consumption(x, route, n):
-    # REMOVE THE FOLLOWING LINE AND WRITE YOUR SOLUTION
-    raise NotImplementedError('total_consumption not implemented yet!')
+
+    assert x <= distance_km[-1], 'x cannot be larger than route length'
 
 ### PART 3A ###
 def distance(T, route): 
