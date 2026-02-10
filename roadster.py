@@ -59,7 +59,7 @@ def time_to_destination(x, route, n):
     assert x <= distance_km[-1], 'x cannot be larger than route length'
     
 
-    strides = np.linspace(0, x, n)
+    strides = np.linspace(0, x, n+1)
     print('strides', strides)
     h = x/n
     integrands = 1 / velocity(strides, route)
