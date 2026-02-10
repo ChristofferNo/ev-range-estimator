@@ -7,10 +7,12 @@ import route_nyc
 def test_part1a_A():
     ref_value_4 = 188.17496
     assert np.isclose(roadster.consumption(4), ref_value_4), 'consumption(4) not close to reference value' 
+    
 
 def test_part1a_B():
     ref_value_188p7 = 394.3069361506624
     assert np.isclose(roadster.consumption(188.7), ref_value_188p7), 'consumption(188.7) not close to reference value'  
+
 
 def test_part1a_C():
     dist_array = np.array([0.1,23.7,48.53,201.3])
@@ -28,7 +30,10 @@ def test_part2a_A():
     n = 2
     ref_value   = 0.9010019433964633
     check_value = roadster.time_to_destination(x, route, n)
+    print('check val', check_value)
     assert np.isclose(ref_value, check_value), 'time_to_destination(...) not close to reference value'
+    
+test_part2a_A()
 
 def test_part2a_B():
     route = 'speed_anna.npz'
@@ -37,6 +42,7 @@ def test_part2a_B():
     ref_value   = 0.4049811174885838
     check_value = roadster.time_to_destination(x, route, n)
     assert np.isclose(ref_value, check_value), 'time_to_destination(...) not close to reference value'
+
 
 def test_part2a_C():
     route = 'speed_elsa.npz'
