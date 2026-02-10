@@ -32,8 +32,7 @@ def test_part2a_A():
     check_value = roadster.time_to_destination(x, route, n)
     print('check val', check_value)
     assert np.isclose(ref_value, check_value), 'time_to_destination(...) not close to reference value'
-    
-test_part2a_A()
+
 
 def test_part2a_B():
     route = 'speed_anna.npz'
@@ -69,7 +68,9 @@ def test_part2b_A():
     n = 2
     ref_value   = 2345.1507931020265
     check_value = roadster.total_consumption(x, route, n)
+    print('check val:', check_value)
     assert np.isclose(ref_value, check_value), 'total_consumption(...) not close to reference value'
+    
 
 def test_part2b_B():
     route = 'speed_elsa.npz'
@@ -215,3 +216,8 @@ def test_part4a_E():
     # check last value in speed_kmph
     ref_value_speed_m1 = 67.501135806462414735
     assert np.isclose(ref_value_speed_m1,speed_kmph[-1]), 'last value in speed_kmph vector different from reference value'
+
+
+test_part2b_A()
+test_part2b_B()
+test_part2b_C()

@@ -53,20 +53,15 @@ def velocity(x, route):
 ### PART 2A ###
 def time_to_destination(x, route, n):
     distance_km, speed_kmph = load_route(route)
-    print('type of x', type(x))
-    print('just distance', distance_km)
     
     assert x <= distance_km[-1], 'x cannot be larger than route length'
     
 
     strides = np.linspace(0, x, n+1)
-    print('strides', strides)
     h = x/n
     integrands = 1 / velocity(strides, route)
-    print('integrands:', integrands)
     ends = integrands[[0, -1]]
     middle = 2 * integrands[1:-1]
-    print('middle', middle)
     integral = (h/2)*(np.sum(ends) + np.sum(middle))
     
     return integral
@@ -75,8 +70,20 @@ def time_to_destination(x, route, n):
 
 ### PART 2B ###
 def total_consumption(x, route, n):
+    
+    distance_km, speed_kmph = load_route(route)
 
     assert x <= distance_km[-1], 'x cannot be larger than route length'
+    strides = np.linspace(0, x, n + 1)
+    h = x/n
+    
+    integrands = consumption(velocity(strides, route))
+    ends = integrands[[0, -1]]
+    middle = 2 * integrands[1:-1]
+    integral = (h/2)*(np.sum(ends) + np.sum(middle))
+    
+    return integral
+    
 
 ### PART 3A ###
 def distance(T, route): 
