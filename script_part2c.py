@@ -18,7 +18,6 @@ def konvergensstudie(route, antal_n, x=65):
     plt.plot(list_n, förväntat)
     plt.show()
     return felvärden[-1]
-print(konvergensstudie('speed_elsa.npz', 8))
 
 
 
