@@ -107,9 +107,28 @@ def distance(T, route):
         x = xn
     return x
     #raise NotImplementedError('distance not implemented yet!')
-print(distance(0.5, "speed_elsa.npz"))
 
 ### PART 3B ###
 def reach(C, route):
-    # REMOVE THE FOLLOWING LINE AND WRITE YOUR SOLUTION
-    raise NotImplementedError('reach not implemented yet!')
+    n = 10000
+    tol = 1e-4
+    d_km,h = load_route(route)
+    d=d_km[-1]
+    print(d)
+    if total_consumption(d, route, n) <= C:
+        return d
+    def G(x):
+        return total_consumption(x, route, n) - C
+    def dG(x):
+        return consumption(velocity(x, route))
+    
+    x = d/2
+    for i in range(100):
+        xn = x - G(x)/dG(x)
+        xn = max(0, min(xn, d))
+        if abs(xn-x) < tol:
+            return xn
+        x = xn
+    return x
+print(reach(5000, 'speed_elsa.npz'))
+
