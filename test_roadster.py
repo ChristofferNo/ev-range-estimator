@@ -13,7 +13,7 @@ def test_part1a_B():
     ref_value_188p7 = 394.3069361506624
     assert np.isclose(roadster.consumption(188.7), ref_value_188p7), 'consumption(188.7) not close to reference value'  
 
-
+print(test_part1a_B)
 def test_part1a_C():
     dist_array = np.array([0.1,23.7,48.53,201.3])
     ref_array  = np.array([5518.3359221,
@@ -102,7 +102,7 @@ def test_part3a_A():
     ref_value   = 51.07040584543483
     check_value = roadster.distance(T, route)
     assert isclose(ref_value, check_value), 'distance(...) not close to reference value'
-
+print(test_part3a_A)
 def test_part3a_B():
     route = 'speed_elsa.npz'
     T = 0.3

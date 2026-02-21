@@ -14,8 +14,12 @@ def konvergensstudie(route, antal_n, x=65):
         felvärden.append(abs((roadster.time_to_destination(x, route, n))- 0.9609402397659929))
         förväntat.append(1/((n)**2))
         n=2*n
-    plt.loglog(list_n, felvärden)
-    plt.plot(list_n, förväntat)
+    plt.loglog(list_n, felvärden, label = "konvergens")
+    plt.plot(list_n, förväntat, label="förväntad konvergens")
+    plt.xlabel("n, antal delintervall")
+    plt.ylabel("integrationsfel")
+    plt.title("Konvergensstudie av integral")
+    plt.legend()
     plt.show()
     return felvärden[-1]
 print(konvergensstudie('speed_elsa.npz', 8))

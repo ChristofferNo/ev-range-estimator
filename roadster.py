@@ -65,8 +65,13 @@ def time_to_destination(x, route, n):
     integral = (h/2)*(np.sum(ends) + np.sum(middle))
     
     return integral
-
-    
+#print(time_to_destination(15, "speed_elsa.npz", 1000000))
+diff = 1
+u=1
+while diff > 0.016667:
+    diff = time_to_destination(15, "speed_elsa.npz", u) -0.2276846457
+    u = u+1
+print("Här är antal n", u)
 
 ### PART 2B ###
 def total_consumption(x, route, n):
@@ -87,8 +92,22 @@ def total_consumption(x, route, n):
 
 ### PART 3A ###
 def distance(T, route): 
-    # REMOVE THE FOLLOWING LINE AND WRITE YOUR SOLUTION
-    raise NotImplementedError('distance not implemented yet!')
+    n = 10000
+    tol = 1e-4
+    def F(x):
+        return time_to_destination(x, route, n) - T
+    def dF(x):
+        return 1/velocity(x, route)
+    
+    x =T * velocity(0, route)
+    for i in range(100):
+        xn = x - F(x)/dF(x)
+        if abs(xn-x) < tol:
+            return xn
+        x = xn
+    return x
+    #raise NotImplementedError('distance not implemented yet!')
+print(distance(0.5, "speed_elsa.npz"))
 
 ### PART 3B ###
 def reach(C, route):
