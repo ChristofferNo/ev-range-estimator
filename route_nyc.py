@@ -28,4 +28,39 @@ def route_nyc(t,x):
 ### PART 4A ###
 def nyc_route_traveler_euler(t0,h):
     # REMOVE THE FOLLOWING LINE AND WRITE YOUR SOLUTION
-    raise NotImplementedError('nyc_route_traveler_euler not implemented yet!')
+
+    speed = route_nyc
+    time_h = []
+    distance_km = []
+    speed_kmph = []
+    
+    traveled_km = 0
+    time = t0
+    
+    
+    while traveled_km < 60:
+      current_speed = list(speed(time, traveled_km))[0][0]
+      delta_distance = h*current_speed
+      
+      time_h.append(time)
+      distance_km.append(traveled_km)
+      speed_kmph.append(current_speed)
+      
+      
+      
+      if (traveled_km + delta_distance > 60):
+        dist_left = 60-traveled_km
+        h_last = dist_left / current_speed
+        t_last = time + h_last
+        time_h.append(t_last)
+        
+        traveled_km = 60
+        distance_km.append(traveled_km)
+        speed_last = list(speed(t_last, traveled_km))[0][0]
+        speed_kmph.append(speed_last)
+        
+      else:
+        traveled_km = traveled_km + delta_distance
+        time = time + h
+      
+    return np.array(time_h) , np.array(distance_km), np.array(speed_kmph)

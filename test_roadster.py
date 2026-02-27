@@ -214,8 +214,3 @@ def test_part4a_E():
     # check last value in speed_kmph
     ref_value_speed_m1 = 67.501135806462414735
     assert np.isclose(ref_value_speed_m1,speed_kmph[-1]), 'last value in speed_kmph vector different from reference value'
-
-
-test_part2b_A()
-test_part2b_B()
-test_part2b_C()
