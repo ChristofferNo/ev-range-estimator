@@ -22,7 +22,6 @@ def konvergensstudie(route, antal_n, x=65):
     plt.legend()
     plt.show()
     return felvärden[-1]
-print(konvergensstudie('speed_elsa.npz', 8))
 
 
 
