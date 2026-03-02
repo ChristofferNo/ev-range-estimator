@@ -92,7 +92,7 @@ def total_consumption(x, route, n):
 
 ### PART 3A ###
 def distance(T, route): 
-    n = 10000
+    n = 100000
     tol = 1e-4
     def F(x):
         return time_to_destination(x, route, n) - T
@@ -106,7 +106,6 @@ def distance(T, route):
             return xn
         x = xn
     return x
-    #raise NotImplementedError('distance not implemented yet!')
 
 ### PART 3B ###
 def reach(C, route):
@@ -131,5 +130,4 @@ def reach(C, route):
             return xn
         x = xn
     return x
-print(reach(10000, 'speed_anna.npz'))
 
