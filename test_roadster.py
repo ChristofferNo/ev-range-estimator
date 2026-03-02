@@ -137,6 +137,9 @@ def test_part3b_B():
     if check_value > distance_km[-1]:
         raise RuntimeError('Your solution is greater than the total distance of the route!');        
     assert isclose(ref_value, check_value), 'reach(...) not close to reference value'
+test_part3b_A()
+test_part3b_B()
+
 
 # Code works in case charge is sufficient for whole route?
 def test_part3b_C():

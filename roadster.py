@@ -110,17 +110,18 @@ def distance(T, route):
 
 ### PART 3B ###
 def reach(C, route):
-    n = 10000
-    tol = 1e-4
+    n = 10000000
+    tol = 1e-10
     d_km,h = load_route(route)
     d=d_km[-1]
-    print(d)
+   
     if total_consumption(d, route, n) <= C:
         return d
     def G(x):
         return total_consumption(x, route, n) - C
     def dG(x):
-        return consumption(velocity(x, route))
+        h = 1e-5
+        return (G(x + h) - G(x - h)) / (2*h)
     
     x = d/2
     for i in range(100):
@@ -130,5 +131,5 @@ def reach(C, route):
             return xn
         x = xn
     return x
-print(reach(5000, 'speed_elsa.npz'))
+print(reach(10000, 'speed_anna.npz'))
 
