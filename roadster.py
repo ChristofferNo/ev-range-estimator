@@ -65,13 +65,6 @@ def time_to_destination(x, route, n):
     integral = (h/2)*(np.sum(ends) + np.sum(middle))
     
     return integral
-#print(time_to_destination(15, "speed_elsa.npz", 1000000))
-diff = 1
-u=1
-while diff > 0.016667:
-    diff = time_to_destination(15, "speed_elsa.npz", u) -0.2276846457
-    u = u+1
-print("Här är antal n", u)
 
 ### PART 2B ###
 def total_consumption(x, route, n):
